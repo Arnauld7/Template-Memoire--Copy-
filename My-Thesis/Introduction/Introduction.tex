@@ -1,0 +1,42 @@
+%\myChapterStar{Titre}{Titre court}{Ajouter à la table des matières? (false|true|chapter|section|subsection|subsubsection -chapter par défaut-)}
+
+
+\myChapterStar{Introduction}{}{true}
+\myMiniToc{}{Sommaire}
+
+\mySectionStar{Contexte et Motivation}{}{true}
+L'avènement des modèles d'apprentissage profond (\textit{deep learning}) a transformé de nombreux secteurs, y compris la cybersécurité, où ils sont de plus en plus utilisés pour des applications telles que le contrôle d'accès aux données et aux traitements. Ces modèles, grâce à leur capacité à traiter des volumes massifs de données et à identifier des motifs complexes, offrent une alternative puissante aux systèmes traditionnels de gestion des accès. Cependant, leur nature intrinsèquement complexe et leur manque de transparence, souvent qualifié de "boîte noire", posent des obstacles significatifs à leur adoption dans des environnements critiques où la responsabilité, la confiance et la conformité réglementaire sont essentielles \cite{zhang2022xai}. Par exemple, dans le cadre du contrôle d'accès, une décision erronée ou non justifiée peut entraîner des violations de sécurité, des fuites de données ou des atteintes à la vie privée, ce qui compromet la confiance des parties prenantes.
+
+De plus, les réglementations modernes, telles que le Règlement Général sur la Protection des Données (RGPD) en Europe, imposent des exigences strictes en matière de transparence et d'explicabilité. L'article 22 du RGPD, par exemple, stipule que les individus ont le droit de ne pas être soumis à des décisions automatisées sans une explication adéquate \cite{goodman2017gdpr}. Cette exigence légale souligne l'importance de développer des approches qui non seulement produisent des décisions précises, mais permettent également de comprendre les raisons sous-jacentes à ces décisions. Dans ce contexte, l'\textit{Explainable Artificial Intelligence} (XAI) émerge comme une discipline clé pour combler cet écart, en proposant des méthodes et des outils capables de rendre les modèles d'apprentissage profond interprétables sans sacrifier leurs performances \cite{barredo2020xai}. Des outils comme SHAP (\textit{Shapley Additive Explanations}) \cite{lundberg2017shap} et LIME (\textit{Local Interpretable Model-agnostic Explanations}) \cite{ribeiro2016lime} ont démontré leur efficacité pour expliquer les prédictions de modèles complexes dans divers domaines. Cependant, leur application spécifique au domaine du contrôle d'accès reste largement sous-explorée, notamment pour des cas d'usage critiques comme la détection d'accès non autorisés, l'audit des permissions ou la gestion des identités numériques \cite{ahmed2021xai}. Ce manque d'approches adaptées motive la nécessité de développer des solutions XAI sur mesure pour répondre aux besoins uniques du contrôle d'accès basé sur l'apprentissage profond.
+
+
+
+% Defining the problematic section with the provided notation
+\mySectionStar{Problématique}{}{true}
+Les systèmes traditionnels de contrôle d'accès, tels que le \textit{Role-Based Access Control} (RBAC) ou l'\textit{Attribute-Based Access Control} (ABAC), reposent sur des règles explicites définies manuellement, offrant une interprétabilité naturelle mais une faible adaptabilité aux environnements dynamiques comme les infrastructures cloud ou les systèmes IoT. À l'inverse, les modèles basés sur l'apprentissage profond permettent une détection en temps réel des anomalies et des comportements frauduleux grâce à leur flexibilité. Cependant, leur adoption est freinée par trois défis majeurs : l'opacité des décisions, qui complique l'audit et la justification des choix effectués \cite{rudin2019stop} ; la conformité réglementaire, exigeant des explications précises et accessibles conformes à des cadres comme le RGPD \cite{goodman2017gdpr} ; et les biais potentiels dans les données d'entraînement, pouvant conduire à des décisions discriminatoires \cite{slack2020fooling}. Ces limitations soulignent un besoin critique de solutions d'explicabilité adaptées.
+
+\textbf{Question de recherche} : Comment concevoir une approche d'explicabilité pour les modèles d'apprentissage profond appliqués au contrôle d'accès, capable de surmonter les défis d'opacité, de conformité réglementaire et de biais, tout en répondant aux besoins des parties prenantes ?
+
+% Defining the objectives section with the provided notation
+\mySectionStar{Objectifs}{}{true}
+L'objectif principal de ce travail est de développer une méthodologie d'explicabilité pour les modèles de contrôle d'accès basés sur l'apprentissage profond, garantissant des décisions transparentes, conformes et équitables dans des environnements dynamiques.
+
+\begin{itemize}
+    \item \textbf{Adapter les méthodes d'explicabilité} : Modifier des algorithmes comme SHAP et LIME pour fournir des explications pertinentes dans des scénarios de contrôle d'accès, tels que la détection d'accès frauduleux ou la gestion des permissions dynamiques.
+    \item \textbf{Développer un cadre d'évaluation} : Établir des métriques et protocoles pour évaluer simultanément la performance (précision, rappel) et l'explicabilité (fidélité, compréhensibilité) des modèles, assurant un équilibre entre efficacité et transparence.
+    \item \textbf{Concevoir des explications conformes et accessibles} : Proposer des formats d'explication (visualisations, textes simplifiés) compréhensibles pour des utilisateurs non techniques et conformes aux exigences réglementaires, notamment celles du RGPD.
+\end{itemize}
+
+
+\mySectionStar{Organisation du Mémoire}{}{true}
+Ce document est structuré en plusieurs chapitres pour couvrir de manière exhaustive le sujet :
+
+\begin{itemize}
+    \item \textbf{Chapitre 1 : Cadre théorique} : Présentation des concepts fondamentaux de l'\textit{Explainable AI} (XAI) et des systèmes de contrôle d'accès, ainsi qu'une analyse des exigences spécifiques des environnements critiques.
+    \item \textbf{Chapitre 2 : État de l'art} : Revue détaillée des méthodes d'explicabilité existantes (SHAP, LIME, etc.) et identification de leurs limites lorsqu'elles sont appliquées au contrôle d'accès.
+    \item \textbf{Chapitre 3 : Proposition méthodologique} : Développement d'une approche originale pour intégrer l'explicabilité dans les modèles de contrôle d'accès, en s'appuyant sur les lacunes identifiées dans l'état de l'art.
+    \item \textbf{Chapitre 4 : Expérimentations} : Mise en œuvre de la méthodologie proposée à travers des études de cas (ex. : détection d'accès frauduleux) et analyse des résultats en termes de performance et d'explicabilité.
+    \item \textbf{Chapitre 5 : Conclusion et perspectives} : Résumé des contributions, discussion des limites de l'approche proposée et suggestions pour des travaux futurs, notamment dans des domaines comme l'explicabilité en temps réel ou l'intégration avec d'autres technologies émergentes.
+\end{itemize}
+
+
